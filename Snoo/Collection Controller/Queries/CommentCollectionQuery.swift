@@ -60,8 +60,6 @@ public final class CommentCollectionQuery: ContentCollectionQuery {
                 return nil
             }
         }
-        
-
     }
     
     override public func fetchRequest() -> NSFetchRequest<NSManagedObject>? {

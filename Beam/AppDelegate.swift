@@ -431,7 +431,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     
         // Subreddits are retrieved from our private Core Data context.
-        let shortcuts = try? DataController.shared.performBackgroundTaskAndWait { context in
+        let shortcuts = try? DataController.shared.performBackgroundTaskAndWait { _ in
             return subreddits[0..<min(subreddits.count, 4)].compactMap { (subreddit) -> UIApplicationShortcutItem? in
                 return subreddit.createApplicationShortcutItem()
             }

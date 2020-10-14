@@ -116,8 +116,7 @@ extension BeamViewControllerLoading where Self: UIViewController {
                 return AWKLocalizedString("error-loading-\(messageType)")
             }
         }()
-        
-        
+
         if let selfNoticing = self as? (UIViewController & NoticeHandling) {
             selfNoticing.presentErrorMessage(message)
         } else {

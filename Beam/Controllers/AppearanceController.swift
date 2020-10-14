@@ -35,8 +35,7 @@ class AppearanceController: NSObject {
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(AppearanceController.userSettingChanged(_:)), name: .SettingsDidChangeSetting, object: nil)
     }
-    
-    
+
     @objc private func userSettingChanged(_ notification: Notification) {
         guard notification.object as? SettingsKey == SettingsKeys.nightModeEnabled ||
             notification.object as? SettingsKey == SettingsKeys.nightModeAutomaticEnabled else {

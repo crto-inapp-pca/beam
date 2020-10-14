@@ -566,8 +566,6 @@ public final class AuthenticationController: NSObject {
                     }
                 }
             }
-            
-
         }
     }
     

@@ -28,7 +28,7 @@ extension ColorPaletteSupport {
     }
 
     func startColorPaletteSupport() {
-        self.colorPaletteChangeObservation = NotificationCenter.default.addObserver(forName: AssetsPickerController.colorPaletteDidChangeNotification, object: nil, queue: nil) { notification in
+        self.colorPaletteChangeObservation = NotificationCenter.default.addObserver(forName: AssetsPickerController.colorPaletteDidChangeNotification, object: nil, queue: nil) { _ in
             self.colorPaletteDidChange()
         }
         self.colorPaletteDidChange()

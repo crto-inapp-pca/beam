@@ -25,7 +25,7 @@ class WebViewController: BeamViewController, WKNavigationDelegate {
         }
         
         webView.navigationDelegate = self
-        titleObserver = webView.observe(\WKWebView.title) { (webView, change) in
+        titleObserver = webView.observe(\WKWebView.title) { (webView, _) in
             self.title = webView.title
         }
         
