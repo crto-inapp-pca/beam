@@ -35,6 +35,8 @@ enum DelayedAppAction {
     case performBlock(block: (() -> Void))
 }
 
+let textClassificationClient = TextClassificationClient(modelFileInfo: modelFileInfo, labelsFileInfo: labelsFileInfo, vocabFileInfo: vocabFileInfo)
+
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 

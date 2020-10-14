@@ -444,6 +444,7 @@
 		0CFEF3A11C870646005D7DAE /* PostImagePartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CFEF3A01C870646005D7DAE /* PostImagePartCell.xib */; };
 		0CFEF3A51C8711D8005D7DAE /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFEF3A41C8711D8005D7DAE /* PostDetailViewController.swift */; };
 		0CFEF3A71C871DF3005D7DAE /* CommentsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFEF3A61C871DF3005D7DAE /* CommentsDataSource.swift */; };
+		6E4F197678C4984119997A39 /* libPods-beam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA517E79BED14A644031CD0 /* libPods-beam.a */; };
 		75E8D0E61BD78470002BB334 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8D0E51BD78470002BB334 /* DonateViewController.swift */; };
 		760DCF831B7A270A003AC4F9 /* Stream.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760DCF821B7A270A003AC4F9 /* Stream.storyboard */; };
 		760DCFA21B4A678D00932673 /* MultiredditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760DCFA11B4A678D00932673 /* MultiredditsViewController.swift */; };
@@ -509,6 +510,10 @@
 		76F4E5EE1BAB05CA00123746 /* SubredditInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4E5ED1BAB05CA00123746 /* SubredditInfoCell.swift */; };
 		76FE600D1B53C28600DB8740 /* AddToMultiredditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE600C1B53C28600DB8740 /* AddToMultiredditViewController.swift */; };
 		76FE99FD1B85E210000BB67B /* Content+Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE99FC1B85E210000BB67B /* Content+Markdown.swift */; };
+		7D69E96F2536E29D00C1AABC /* text_classification.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E95F2536E29D00C1AABC /* text_classification.tflite */; };
+		7D69E9712536E34100C1AABC /* CriteoTextClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E9702536E34100C1AABC /* CriteoTextClassifier.swift */; };
+		7D69E9742536E59D00C1AABC /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9732536E59D00C1AABC /* labels.txt */; };
+		7D69E9762536E60700C1AABC /* vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9752536E60700C1AABC /* vocab.txt */; };
 		9A0B160A1B84D1D8004FF4C3 /* MediaOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0B16091B84D1D8004FF4C3 /* MediaOverview.storyboard */; };
 		9A7945811C04BF5200B72F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7660741C1B38073100F4C777 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -1258,6 +1263,7 @@
 		0CFEF3A01C870646005D7DAE /* PostImagePartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostImagePartCell.xib; sourceTree = "<group>"; };
 		0CFEF3A41C8711D8005D7DAE /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		0CFEF3A61C871DF3005D7DAE /* CommentsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsDataSource.swift; sourceTree = "<group>"; };
+		18E83640979888DC3BA9550F /* Pods-beam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beam.release.xcconfig"; path = "Target Support Files/Pods-beam/Pods-beam.release.xcconfig"; sourceTree = "<group>"; };
 		75E8D0E51BD78470002BB334 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateViewController.swift; path = Beam/UI/Settings/DonateViewController.swift; sourceTree = SOURCE_ROOT; };
 		760DCF821B7A270A003AC4F9 /* Stream.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Stream.storyboard; path = "Beam/UI/Subreddits/Posts Stream/Stream.storyboard"; sourceTree = SOURCE_ROOT; };
 		760DCFA11B4A678D00932673 /* MultiredditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiredditsViewController.swift; path = Beam/UI/Subscriptions/MultiredditsViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -1328,7 +1334,13 @@
 		76F4E5ED1BAB05CA00123746 /* SubredditInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubredditInfoCell.swift; path = "Beam/UI/Subreddits/Subreddit View/Cells/SubredditInfoCell.swift"; sourceTree = SOURCE_ROOT; };
 		76FE600C1B53C28600DB8740 /* AddToMultiredditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddToMultiredditViewController.swift; path = "Beam/UI/Subreddits/Subreddit View/AddToMultiredditViewController.swift"; sourceTree = SOURCE_ROOT; };
 		76FE99FC1B85E210000BB67B /* Content+Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Content+Markdown.swift"; path = "Beam/Models/Content+Markdown.swift"; sourceTree = SOURCE_ROOT; };
+		7D69E95F2536E29D00C1AABC /* text_classification.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; name = text_classification.tflite; path = Beam/Criteo/text_classification.tflite; sourceTree = SOURCE_ROOT; };
+		7D69E9702536E34100C1AABC /* CriteoTextClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoTextClassifier.swift; sourceTree = "<group>"; };
+		7D69E9732536E59D00C1AABC /* labels.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
+		7D69E9752536E60700C1AABC /* vocab.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = vocab.txt; sourceTree = "<group>"; };
+		8AA517E79BED14A644031CD0 /* libPods-beam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-beam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0B16091B84D1D8004FF4C3 /* MediaOverview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MediaOverview.storyboard; path = "Beam/UI/Subreddits/Media Overview/MediaOverview.storyboard"; sourceTree = SOURCE_ROOT; };
+		DD3D97E9B5D7EF7A67854966 /* Pods-beam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beam.debug.xcconfig"; path = "Target Support Files/Pods-beam/Pods-beam.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1393,6 +1405,7 @@
 				764CD6241B399D4C002F9B79 /* SafariServices.framework in Frameworks */,
 				0C056FBA1D82BDA300E32FB3 /* Snoo.framework in Frameworks */,
 				766826721B84808000647A30 /* RedditMarkdownKit.framework in Frameworks */,
+				6E4F197678C4984119997A39 /* libPods-beam.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2709,6 +2722,7 @@
 				0C3092011D82CBCD00E0BECC /* CherryKitTests */,
 				7692AA6A1B38132700DF8B97 /* Frameworks */,
 				766074141B38073100F4C777 /* Products */,
+				CD9DB29C53584E1E52FE26B0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2729,6 +2743,7 @@
 		766074151B38073100F4C777 /* Beam */ = {
 			isa = PBXGroup;
 			children = (
+				7D69E9722536E53A00C1AABC /* Criteo */,
 				0C980D751F62EB29006E3920 /* Settings.bundle */,
 				0C1894461D86B10E000BCB0C /* beam.entitlements */,
 				76DA034B1B5644D800137BF2 /* beam-Bridging-Header.h */,
@@ -2775,6 +2790,7 @@
 				0C1B96E91C4E8023001C0EEF /* Social.framework */,
 				00D470BF1BCFF156001125B0 /* iOS */,
 				00D470B41BCFF14F001125B0 /* External */,
+				8AA517E79BED14A644031CD0 /* libPods-beam.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2787,6 +2803,26 @@
 				004BD15923C4838C001C7FEE /* SDWebImageMapKit.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7D69E9722536E53A00C1AABC /* Criteo */ = {
+			isa = PBXGroup;
+			children = (
+				7D69E9702536E34100C1AABC /* CriteoTextClassifier.swift */,
+				7D69E95F2536E29D00C1AABC /* text_classification.tflite */,
+				7D69E9732536E59D00C1AABC /* labels.txt */,
+				7D69E9752536E60700C1AABC /* vocab.txt */,
+			);
+			path = Criteo;
+			sourceTree = "<group>";
+		};
+		CD9DB29C53584E1E52FE26B0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD3D97E9B5D7EF7A67854966 /* Pods-beam.debug.xcconfig */,
+				18E83640979888DC3BA9550F /* Pods-beam.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2923,6 +2959,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7660743D1B38073100F4C777 /* Build configuration list for PBXNativeTarget "beam" */;
 			buildPhases = (
+				562BF673595037220A4AC355 /* [CP] Check Pods Manifest.lock */,
 				0C980CFB1F62D94F006E3920 /* Confirm Config.swift */,
 				7660740F1B38073100F4C777 /* Sources */,
 				766074101B38073100F4C777 /* Frameworks */,
@@ -3299,6 +3336,7 @@
 				760DCF831B7A270A003AC4F9 /* Stream.storyboard in Resources */,
 				0C0F4D921BE7B85900D1BB89 /* stars_level_0.sks in Resources */,
 				9A7945811C04BF5200B72F27 /* Main.storyboard in Resources */,
+				7D69E9742536E59D00C1AABC /* labels.txt in Resources */,
 				0CCD2AB81C3C1C7600868E53 /* EditMultireddit.storyboard in Resources */,
 				0C09F7DD1CD2381A00E89B1A /* ImgurGalleryToolbar.xib in Resources */,
 				0C3E2B421D09BA6D000E2F77 /* SubredditTitleView.xib in Resources */,
@@ -3312,6 +3350,7 @@
 				0CF1F7AB1CA2A319008EAC04 /* CreatePost.storyboard in Resources */,
 				0CB24DA31C883A74006D34C1 /* CommentsHeaderView.xib in Resources */,
 				0C668E0A1C206D6F00671018 /* TableViewHeaderBannerView.xib in Resources */,
+				7D69E9762536E60700C1AABC /* vocab.txt in Resources */,
 				0C145E391BDE2FD700C74100 /* Report.storyboard in Resources */,
 				761079011BA8085E004B7887 /* SubredditList.storyboard in Resources */,
 				9A0B160A1B84D1D8004FF4C3 /* MediaOverview.storyboard in Resources */,
@@ -3325,6 +3364,7 @@
 				0CFEF3991C8704C1005D7DAE /* PostMetaDataPartCell.xib in Resources */,
 				0CB24DC01C88639F006D34C1 /* CommentsFooterView.xib in Resources */,
 				0032E05C1BCBBA8100B2F847 /* GalleryPostBottomView.xib in Resources */,
+				7D69E96F2536E29D00C1AABC /* text_classification.tflite in Resources */,
 				76E8B2E91B552F9100810A21 /* WebViewController.xib in Resources */,
 				0CFEF3931C87024B005D7DAE /* PostSelfTextPartCell.xib in Resources */,
 				766074471B3807B800F4C777 /* Subreddit.storyboard in Resources */,
@@ -3380,6 +3420,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${CONFIGURATION}\" == \"Debug\" ]; then\n    if [ -z \"$CI\" ]; then\n        if which swiftlint >/dev/null; then\n            swiftlint --config \"${SRCROOT}/.swiftlint.yml\"\n        fi\n    fi\nelse\n    echo \"Info: As we're not building for Debug, no SwiftLint is running.\"\nfi\n\n\n";
+		};
+		562BF673595037220A4AC355 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-beam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3568,6 +3630,7 @@
 				0CC2ECA91CE09AC000C9BFE7 /* SubredditDisplayOptionsViewController.swift in Sources */,
 				0C480EAF1C7B1A47005BD750 /* CommentCellContentView.swift in Sources */,
 				0CB24DAF1C8862EF006D34C1 /* CommentsFooterView.swift in Sources */,
+				7D69E9712536E34100C1AABC /* CriteoTextClassifier.swift in Sources */,
 				0C9FE0441CB2D930007109DE /* DeleteContentActivity.swift in Sources */,
 				0CCFD5701C47D1390080191F /* SubredditListTableViewCell.swift in Sources */,
 				0C9BEFA41C48FE37000D3725 /* MessageCollectionQuery+Fetching.swift in Sources */,
@@ -4300,8 +4363,8 @@
 		};
 		7660743E1B38073100F4C777 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD3D97E9B5D7EF7A67854966 /* Pods-beam.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = beam/beam.entitlements;
@@ -4326,11 +4389,6 @@
 					"$(PROJECT_DIR)/beam",
 				);
 				MARKETING_VERSION = 2.7;
-				OTHER_LDFLAGS = (
-					"-lxml2",
-					"-lsqlite3.0",
-				);
-				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.madeawkward.beam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -4342,8 +4400,8 @@
 		};
 		7660743F1B38073100F4C777 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18E83640979888DC3BA9550F /* Pods-beam.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = beam/beam.entitlements;
@@ -4363,11 +4421,6 @@
 					"$(PROJECT_DIR)/beam",
 				);
 				MARKETING_VERSION = 2.7;
-				OTHER_LDFLAGS = (
-					"-lxml2",
-					"-lsqlite3.0",
-				);
-				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.madeawkward.beam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
