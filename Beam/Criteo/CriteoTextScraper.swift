@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     func scrapeTextRecursively() -> String? {
         var texts = [String]()
-        if !accessibilityTraits.contains(.adjustable),
+        if accessibilityTraits.intersection([.adjustable, .header]).isEmpty,
            let trimmedLabel = accessibilityLabel?.trimmingCharacters(in: .whitespacesAndNewlines),
            !trimmedLabel.isEmpty {
             texts.append(trimmedLabel)
