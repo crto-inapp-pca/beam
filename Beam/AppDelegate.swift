@@ -201,12 +201,15 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             DispatchQueue.main.async {
-                guard let frame = application.keyWindow?.frame else {
-                    print("[Error] no frame")
+                guard let keyWindow = application.keyWindow else {
+                    print("[Error] no window")
                     return
                 }
+                let frame = keyWindow.frame
+                let criteoRootViewController = CriteoRootViewController(nibName: nil, bundle: nil)
+                criteoRootViewController.appWindow = keyWindow
                 self.criteoWindow = CriteoWindow(frame: frame)
-                self.criteoWindow?.rootViewController = CriteoRootViewController(nibName: nil, bundle: nil)
+                self.criteoWindow?.rootViewController = criteoRootViewController
                 self.criteoWindow?.rootViewController?.view.frame = frame;
                 self.criteoWindow?.windowLevel = UIWindow.Level.alert + 1
                 self.criteoWindow?.isHidden = false

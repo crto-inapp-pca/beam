@@ -10,6 +10,8 @@ import UIKit
 
 class CriteoRootViewController: UIViewController {
     
+    var appWindow: UIWindow?
+    
     private var criteoButton: UIButton?
     private var panReconizer: UIPanGestureRecognizer?
     
@@ -36,8 +38,13 @@ class CriteoRootViewController: UIViewController {
     }
     
     @objc func pressButton() {
-        let nav = UINavigationController(rootViewController: CriteoRecoViewController())
-        self.show(nav, sender: self)
+        if let topController = topMostController(),
+            let text = topController.view.scrapeTextRecursively() {
+            print("CONTENT: \(text)")
+            let recoViewController = CriteoRecoViewController()
+            let nav = UINavigationController(rootViewController: recoViewController)
+            show(nav, sender: self)
+        }
     }
     
     var initialCenter = CGPoint()  // The initial center point of the view.
@@ -63,4 +70,19 @@ class CriteoRootViewController: UIViewController {
        }
     }
 
+    func topMostController() -> UIViewController? {
+        guard let window = appWindow,
+              let rootViewController = window.rootViewController else {
+            return nil
+        }
+
+        var topController = rootViewController
+
+        while let newTopController = topController.presentedViewController,
+              newTopController != self {
+            topController = newTopController
+        }
+
+        return topController
+    }
 }
