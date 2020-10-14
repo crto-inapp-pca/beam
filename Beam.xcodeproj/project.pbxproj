@@ -521,6 +521,12 @@
 		7D69E9AB25371C0100C1AABC /* CriteoRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E9AA25371C0100C1AABC /* CriteoRootViewController.swift */; };
 		7D69E9AD25371D4900C1AABC /* CriteoRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E9AC25371D4900C1AABC /* CriteoRootView.swift */; };
 		7D69E9AF253730C500C1AABC /* CriteoRecoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E9AE253730C500C1AABC /* CriteoRecoViewController.swift */; };
+		7D69E9B825374F8200C1AABC /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E9B625374F8200C1AABC /* ActivityCell.swift */; };
+		7D69E9B925374F8200C1AABC /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9B725374F8200C1AABC /* ActivityCell.xib */; };
+		7D69E9E525376F4E00C1AABC /* CriteoProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E9E325376F4E00C1AABC /* CriteoProductCell.swift */; };
+		7D69E9E625376F4E00C1AABC /* CriteoProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9E425376F4E00C1AABC /* CriteoProductCell.xib */; };
+		7D69E9EB253770F400C1AABC /* CriteoClassificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E9E9253770F400C1AABC /* CriteoClassificationCell.swift */; };
+		7D69E9EC253770F400C1AABC /* CriteoClassificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9EA253770F400C1AABC /* CriteoClassificationCell.xib */; };
 		9A0B160A1B84D1D8004FF4C3 /* MediaOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0B16091B84D1D8004FF4C3 /* MediaOverview.storyboard */; };
 		9A7945811C04BF5200B72F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7660741C1B38073100F4C777 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -1352,6 +1358,12 @@
 		7D69E9AA25371C0100C1AABC /* CriteoRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoRootViewController.swift; sourceTree = "<group>"; };
 		7D69E9AC25371D4900C1AABC /* CriteoRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoRootView.swift; sourceTree = "<group>"; };
 		7D69E9AE253730C500C1AABC /* CriteoRecoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoRecoViewController.swift; sourceTree = "<group>"; };
+		7D69E9B625374F8200C1AABC /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
+		7D69E9B725374F8200C1AABC /* ActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
+		7D69E9E325376F4E00C1AABC /* CriteoProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoProductCell.swift; sourceTree = "<group>"; };
+		7D69E9E425376F4E00C1AABC /* CriteoProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CriteoProductCell.xib; sourceTree = "<group>"; };
+		7D69E9E9253770F400C1AABC /* CriteoClassificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoClassificationCell.swift; sourceTree = "<group>"; };
+		7D69E9EA253770F400C1AABC /* CriteoClassificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CriteoClassificationCell.xib; sourceTree = "<group>"; };
 		9A0B16091B84D1D8004FF4C3 /* MediaOverview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MediaOverview.storyboard; path = "Beam/UI/Subreddits/Media Overview/MediaOverview.storyboard"; sourceTree = SOURCE_ROOT; };
 		B8CE9CDB85B5DD8CA0B8A695 /* Pods_beam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3D97E9B5D7EF7A67854966 /* Pods-beam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beam.debug.xcconfig"; path = "Target Support Files/Pods-beam/Pods-beam.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2836,11 +2848,17 @@
 				465225D925374C0600AF8DA3 /* Models */,
 				4652258925374B6100AF8DA3 /* CriteoContextualAnalysisService.swift */,
 				7D69E9702536E34100C1AABC /* CriteoTextClassifier.swift */,
-				7D69E9AE253730C500C1AABC /* CriteoRecoViewController.swift */,
 				7D69E9AA25371C0100C1AABC /* CriteoRootViewController.swift */,
 				7D69E9AC25371D4900C1AABC /* CriteoRootView.swift */,
 				4652251A25373B2400AF8DA3 /* CriteoTextScraper.swift */,
 				7D69E999253717F700C1AABC /* CriteoWindow.swift */,
+				7D69E9AE253730C500C1AABC /* CriteoRecoViewController.swift */,
+				7D69E9B625374F8200C1AABC /* ActivityCell.swift */,
+				7D69E9B725374F8200C1AABC /* ActivityCell.xib */,
+				7D69E9E325376F4E00C1AABC /* CriteoProductCell.swift */,
+				7D69E9E425376F4E00C1AABC /* CriteoProductCell.xib */,
+				7D69E9E9253770F400C1AABC /* CriteoClassificationCell.swift */,
+				7D69E9EA253770F400C1AABC /* CriteoClassificationCell.xib */,
 			);
 			path = Criteo;
 			sourceTree = "<group>";
@@ -3368,6 +3386,7 @@
 				9A7945811C04BF5200B72F27 /* Main.storyboard in Resources */,
 				7D69E9742536E59D00C1AABC /* labels.txt in Resources */,
 				0CCD2AB81C3C1C7600868E53 /* EditMultireddit.storyboard in Resources */,
+				7D69E9B925374F8200C1AABC /* ActivityCell.xib in Resources */,
 				0C09F7DD1CD2381A00E89B1A /* ImgurGalleryToolbar.xib in Resources */,
 				0C3E2B421D09BA6D000E2F77 /* SubredditTitleView.xib in Resources */,
 				0CFEF38F1C870169005D7DAE /* PostTitlePartCell.xib in Resources */,
@@ -3404,6 +3423,7 @@
 				0CFE5AFA1C08A58A009DF1CE /* tap.caf in Resources */,
 				0C87AAB31C846F9200D5A3A5 /* LoadMoreCommentsCell.xib in Resources */,
 				0CE3EF461CA412DA0086FC26 /* MarkdownActionBar.xib in Resources */,
+				7D69E9EC253770F400C1AABC /* CriteoClassificationCell.xib in Resources */,
 				0C053BCA1BCEA13A00311315 /* Profile.storyboard in Resources */,
 				766074201B38073100F4C777 /* Assets.xcassets in Resources */,
 				0C8C57271BBE874100CE05BC /* CommentCell.xib in Resources */,
@@ -3411,6 +3431,7 @@
 				0C8B204D1CBFE7D400CF8E2A /* AssetsPickerControllerAlbumEmptyView.xib in Resources */,
 				0CFEF39B1C8704FA005D7DAE /* PostURLPartCell.xib in Resources */,
 				0C2CD26C1C104B7500C58D3B /* Settings.storyboard in Resources */,
+				7D69E9E625376F4E00C1AABC /* CriteoProductCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3721,6 +3742,7 @@
 				0CF1EC0E1C3FF4D20084FB89 /* UserNotificationsHandler.swift in Sources */,
 				0C26054B1CAD27F10078ABF6 /* ImageAssetCollectionViewCell.swift in Sources */,
 				0C2D94A21C15B36200CA201E /* PostImageCollectionPartItemCell.swift in Sources */,
+				7D69E9EB253770F400C1AABC /* CriteoClassificationCell.swift in Sources */,
 				0C7C0AC01C19945200020F60 /* BeamImageLoader.swift in Sources */,
 				0CDF94ED1CBB9D0200B23996 /* PasscodeIndicatorView.swift in Sources */,
 				0C5850FC1FF53519005CF710 /* UIViewControllerContextTransitioningExtensions.swift in Sources */,
@@ -3852,9 +3874,11 @@
 				0C7630191BD68838007672DE /* SmallTabBarController.swift in Sources */,
 				0C09F7C91CD2380E00E89B1A /* ImgurGalleryToolbar.swift in Sources */,
 				76E47CD51B8DC28400079FFB /* CherryPostParsingOperation.swift in Sources */,
+				7D69E9E525376F4E00C1AABC /* CriteoProductCell.swift in Sources */,
 				764C562D1BBAC98C006B3771 /* ImageObject+MediaImage.swift in Sources */,
 				0C5E59F31C85D4D000CA9121 /* CommentsNavigationController.swift in Sources */,
 				0CDC51581BE24C2000DBB605 /* BeamEmptyView.swift in Sources */,
+				7D69E9B825374F8200C1AABC /* ActivityCell.swift in Sources */,
 				0C165F281C747B8A0062EEC4 /* BeamPlainButton.swift in Sources */,
 				0C8B204B1CBFE7C800CF8E2A /* AssetsPickerControllerAuthorizationEmptyView.swift in Sources */,
 				0CDE0385212335880055A0FD /* PostVideoPartCell.swift in Sources */,
