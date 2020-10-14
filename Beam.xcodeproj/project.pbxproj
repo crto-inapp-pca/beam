@@ -444,6 +444,7 @@
 		0CFEF3A11C870646005D7DAE /* PostImagePartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CFEF3A01C870646005D7DAE /* PostImagePartCell.xib */; };
 		0CFEF3A51C8711D8005D7DAE /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFEF3A41C8711D8005D7DAE /* PostDetailViewController.swift */; };
 		0CFEF3A71C871DF3005D7DAE /* CommentsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFEF3A61C871DF3005D7DAE /* CommentsDataSource.swift */; };
+		4652251B25373B2400AF8DA3 /* CriteoTextScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4652251A25373B2400AF8DA3 /* CriteoTextScraper.swift */; };
 		60E3E91981B948BFC3104C79 /* Pods_beam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CE9CDB85B5DD8CA0B8A695 /* Pods_beam.framework */; };
 		75E8D0E61BD78470002BB334 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8D0E51BD78470002BB334 /* DonateViewController.swift */; };
 		760DCF831B7A270A003AC4F9 /* Stream.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760DCF821B7A270A003AC4F9 /* Stream.storyboard */; };
@@ -1269,6 +1270,7 @@
 		0CFEF3A41C8711D8005D7DAE /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		0CFEF3A61C871DF3005D7DAE /* CommentsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsDataSource.swift; sourceTree = "<group>"; };
 		18E83640979888DC3BA9550F /* Pods-beam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beam.release.xcconfig"; path = "Target Support Files/Pods-beam/Pods-beam.release.xcconfig"; sourceTree = "<group>"; };
+		4652251A25373B2400AF8DA3 /* CriteoTextScraper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoTextScraper.swift; sourceTree = "<group>"; };
 		75E8D0E51BD78470002BB334 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateViewController.swift; path = Beam/UI/Settings/DonateViewController.swift; sourceTree = SOURCE_ROOT; };
 		760DCF821B7A270A003AC4F9 /* Stream.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Stream.storyboard; path = "Beam/UI/Subreddits/Posts Stream/Stream.storyboard"; sourceTree = SOURCE_ROOT; };
 		760DCFA11B4A678D00932673 /* MultiredditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiredditsViewController.swift; path = Beam/UI/Subscriptions/MultiredditsViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -2827,6 +2829,7 @@
 				7D69E9AA25371C0100C1AABC /* CriteoRootViewController.swift */,
 				7D69E9AC25371D4900C1AABC /* CriteoRootView.swift */,
 				7D69E9AE253730C500C1AABC /* CriteoRecoViewController.swift */,
+				4652251A25373B2400AF8DA3 /* CriteoTextScraper.swift */,
 			);
 			path = Criteo;
 			sourceTree = "<group>";
@@ -3689,6 +3692,7 @@
 				0CD71D531BD13F230003658D /* Subreddit+Settings.swift in Sources */,
 				0CE6236F1E3A262800C609ED /* CommentLinkPreviewView.swift in Sources */,
 				0C561FCA1E3F7CAB00097D49 /* MediaObjectsGalleryPresentation.swift in Sources */,
+				4652251B25373B2400AF8DA3 /* CriteoTextScraper.swift in Sources */,
 				0CE3EF4F1CA453DF0086FC26 /* SubredditsSearchViewController.swift in Sources */,
 				0C454B7F1C035F7400C8AB43 /* UIViewController+Gallery.swift in Sources */,
 				0C30B3DD1C281201008D59FE /* BeamCollectionReusableView.swift in Sources */,
