@@ -1,5 +1,8 @@
 platform :ios, '9.0'
 
 target 'beam' do
-    pod 'TensorFlowLiteSwift', '~> 2.3'
+    use_frameworks!
+
+  pod 'TensorFlowLiteSwift'
+  pod 'TensorFlowLiteTaskText', '~> 0.0.1-nightly'
 end

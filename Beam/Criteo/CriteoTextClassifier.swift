@@ -9,12 +9,32 @@
 import UIKit
 
 import TensorFlowLite
+import TensorFlowLiteTaskText
 
 import Foundation
 
+
+class CriteoNLClassifier {
+    private var classifier: TFLNLClassifier?
+    
+    func loadModel() {
+      guard let modelPath = Bundle.main.path(
+        forResource: "text_classification", ofType: "tflite") else { return }
+      let options = TFLNLClassifierOptions()
+      self.classifier = TFLNLClassifier.nlClassifier(modelPath: modelPath, options: options)
+    }
+    
+    func classify(text: String) -> [String : NSNumber] {
+        guard let classifier = self.classifier else { return [:] }
+      let classifierResults = classifier.classify(text: text)
+      return classifierResults
+    }
+}
+
+
 typealias FileInfo = (name: String, extension: String)
 
-let modelFileInfo = FileInfo(name: "text_classification", extension: "tflite")
+let modelFileInfo = FileInfo(name: "text_classification1", extension: "tflite")
 let labelsFileInfo = FileInfo(name: "labels", extension: "txt")
 let vocabFileInfo = FileInfo(name: "vocab", extension: "txt")
 
@@ -117,6 +137,9 @@ private func loadLabels(fileInfo: FileInfo) {
   do {
     let contents = try String(contentsOf: fileURL, encoding: .utf8)
     labels = contents.components(separatedBy: .newlines)
+    if (labels[labels.count - 1] == "") {
+        labels.removeLast()
+    }
   } catch {
     fatalError("Labels file named \(filename).\(fileExtension) cannot be read. Please add a " +
                  "valid labels file and try again.")

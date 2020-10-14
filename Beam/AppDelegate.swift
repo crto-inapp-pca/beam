@@ -180,6 +180,27 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         //Learn the device some reddit words, helping with spelling and auto correct
         self.learnRedditWords()
         
+        DispatchQueue.global().async {
+            let classifier = CriteoNLClassifier()
+            classifier.loadModel()
+            print("----------------------")
+            print("CLASSIFIER")
+            print("Text:")
+            print("I like a lot movies. I enjoy my evening.")
+            let result = classifier.classify(text: "I like a lot movies. I enjoy my evening.")
+            result.forEach { (arg0) in
+                
+                let (key, value) = arg0
+                print(key + " " + value.stringValue)
+            }
+            
+            let results = textClassificationClient?.classify(text: "I like a lot movies. I enjoy my evening.")
+            print("----------------------")
+            for result in results! {
+              print(result.title + " " + String(result.confidence) + "\n")
+            }
+        }
+        
         return true
     }
     

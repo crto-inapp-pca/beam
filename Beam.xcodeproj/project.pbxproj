@@ -444,7 +444,7 @@
 		0CFEF3A11C870646005D7DAE /* PostImagePartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CFEF3A01C870646005D7DAE /* PostImagePartCell.xib */; };
 		0CFEF3A51C8711D8005D7DAE /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFEF3A41C8711D8005D7DAE /* PostDetailViewController.swift */; };
 		0CFEF3A71C871DF3005D7DAE /* CommentsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFEF3A61C871DF3005D7DAE /* CommentsDataSource.swift */; };
-		6E4F197678C4984119997A39 /* libPods-beam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AA517E79BED14A644031CD0 /* libPods-beam.a */; };
+		60E3E91981B948BFC3104C79 /* Pods_beam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8CE9CDB85B5DD8CA0B8A695 /* Pods_beam.framework */; };
 		75E8D0E61BD78470002BB334 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8D0E51BD78470002BB334 /* DonateViewController.swift */; };
 		760DCF831B7A270A003AC4F9 /* Stream.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760DCF821B7A270A003AC4F9 /* Stream.storyboard */; };
 		760DCFA21B4A678D00932673 /* MultiredditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760DCFA11B4A678D00932673 /* MultiredditsViewController.swift */; };
@@ -510,10 +510,11 @@
 		76F4E5EE1BAB05CA00123746 /* SubredditInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F4E5ED1BAB05CA00123746 /* SubredditInfoCell.swift */; };
 		76FE600D1B53C28600DB8740 /* AddToMultiredditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE600C1B53C28600DB8740 /* AddToMultiredditViewController.swift */; };
 		76FE99FD1B85E210000BB67B /* Content+Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FE99FC1B85E210000BB67B /* Content+Markdown.swift */; };
-		7D69E96F2536E29D00C1AABC /* text_classification.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E95F2536E29D00C1AABC /* text_classification.tflite */; };
+		7D69E96F2536E29D00C1AABC /* text_classification1.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E95F2536E29D00C1AABC /* text_classification1.tflite */; };
 		7D69E9712536E34100C1AABC /* CriteoTextClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E9702536E34100C1AABC /* CriteoTextClassifier.swift */; };
 		7D69E9742536E59D00C1AABC /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9732536E59D00C1AABC /* labels.txt */; };
 		7D69E9762536E60700C1AABC /* vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9752536E60700C1AABC /* vocab.txt */; };
+		7D69E9782536F84C00C1AABC /* text_classification.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9772536F84C00C1AABC /* text_classification.tflite */; };
 		9A0B160A1B84D1D8004FF4C3 /* MediaOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0B16091B84D1D8004FF4C3 /* MediaOverview.storyboard */; };
 		9A7945811C04BF5200B72F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7660741C1B38073100F4C777 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -1334,12 +1335,13 @@
 		76F4E5ED1BAB05CA00123746 /* SubredditInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubredditInfoCell.swift; path = "Beam/UI/Subreddits/Subreddit View/Cells/SubredditInfoCell.swift"; sourceTree = SOURCE_ROOT; };
 		76FE600C1B53C28600DB8740 /* AddToMultiredditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddToMultiredditViewController.swift; path = "Beam/UI/Subreddits/Subreddit View/AddToMultiredditViewController.swift"; sourceTree = SOURCE_ROOT; };
 		76FE99FC1B85E210000BB67B /* Content+Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Content+Markdown.swift"; path = "Beam/Models/Content+Markdown.swift"; sourceTree = SOURCE_ROOT; };
-		7D69E95F2536E29D00C1AABC /* text_classification.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; name = text_classification.tflite; path = Beam/Criteo/text_classification.tflite; sourceTree = SOURCE_ROOT; };
+		7D69E95F2536E29D00C1AABC /* text_classification1.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; name = text_classification1.tflite; path = Beam/Criteo/text_classification1.tflite; sourceTree = SOURCE_ROOT; };
 		7D69E9702536E34100C1AABC /* CriteoTextClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoTextClassifier.swift; sourceTree = "<group>"; };
 		7D69E9732536E59D00C1AABC /* labels.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
 		7D69E9752536E60700C1AABC /* vocab.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = vocab.txt; sourceTree = "<group>"; };
-		8AA517E79BED14A644031CD0 /* libPods-beam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-beam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D69E9772536F84C00C1AABC /* text_classification.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = text_classification.tflite; sourceTree = "<group>"; };
 		9A0B16091B84D1D8004FF4C3 /* MediaOverview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MediaOverview.storyboard; path = "Beam/UI/Subreddits/Media Overview/MediaOverview.storyboard"; sourceTree = SOURCE_ROOT; };
+		B8CE9CDB85B5DD8CA0B8A695 /* Pods_beam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3D97E9B5D7EF7A67854966 /* Pods-beam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beam.debug.xcconfig"; path = "Target Support Files/Pods-beam/Pods-beam.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1405,7 +1407,7 @@
 				764CD6241B399D4C002F9B79 /* SafariServices.framework in Frameworks */,
 				0C056FBA1D82BDA300E32FB3 /* Snoo.framework in Frameworks */,
 				766826721B84808000647A30 /* RedditMarkdownKit.framework in Frameworks */,
-				6E4F197678C4984119997A39 /* libPods-beam.a in Frameworks */,
+				60E3E91981B948BFC3104C79 /* Pods_beam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2790,7 +2792,7 @@
 				0C1B96E91C4E8023001C0EEF /* Social.framework */,
 				00D470BF1BCFF156001125B0 /* iOS */,
 				00D470B41BCFF14F001125B0 /* External */,
-				8AA517E79BED14A644031CD0 /* libPods-beam.a */,
+				B8CE9CDB85B5DD8CA0B8A695 /* Pods_beam.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2808,8 +2810,9 @@
 		7D69E9722536E53A00C1AABC /* Criteo */ = {
 			isa = PBXGroup;
 			children = (
+				7D69E9772536F84C00C1AABC /* text_classification.tflite */,
 				7D69E9702536E34100C1AABC /* CriteoTextClassifier.swift */,
-				7D69E95F2536E29D00C1AABC /* text_classification.tflite */,
+				7D69E95F2536E29D00C1AABC /* text_classification1.tflite */,
 				7D69E9732536E59D00C1AABC /* labels.txt */,
 				7D69E9752536E60700C1AABC /* vocab.txt */,
 			);
@@ -2966,6 +2969,7 @@
 				766074111B38073100F4C777 /* Resources */,
 				76CBB3281B4E80610060440B /* Embed Frameworks */,
 				0CF61A4B20D6EBF90054D4F3 /* Swiftlint */,
+				08572818E095336DCD8F2F70 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3354,6 +3358,7 @@
 				0C145E391BDE2FD700C74100 /* Report.storyboard in Resources */,
 				761079011BA8085E004B7887 /* SubredditList.storyboard in Resources */,
 				9A0B160A1B84D1D8004FF4C3 /* MediaOverview.storyboard in Resources */,
+				7D69E9782536F84C00C1AABC /* text_classification.tflite in Resources */,
 				008694541BECE25E0014C9D3 /* MultiredditSubTableViewCell.xib in Resources */,
 				0CDC7BA41BE8DC6900938012 /* stars_level_1.sks in Resources */,
 				0C980D761F62EB29006E3920 /* Settings.bundle in Resources */,
@@ -3364,7 +3369,7 @@
 				0CFEF3991C8704C1005D7DAE /* PostMetaDataPartCell.xib in Resources */,
 				0CB24DC01C88639F006D34C1 /* CommentsFooterView.xib in Resources */,
 				0032E05C1BCBBA8100B2F847 /* GalleryPostBottomView.xib in Resources */,
-				7D69E96F2536E29D00C1AABC /* text_classification.tflite in Resources */,
+				7D69E96F2536E29D00C1AABC /* text_classification1.tflite in Resources */,
 				76E8B2E91B552F9100810A21 /* WebViewController.xib in Resources */,
 				0CFEF3931C87024B005D7DAE /* PostSelfTextPartCell.xib in Resources */,
 				766074471B3807B800F4C777 /* Subreddit.storyboard in Resources */,
@@ -3393,6 +3398,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		08572818E095336DCD8F2F70 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-beam/Pods-beam-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-beam/Pods-beam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0C980CFB1F62D94F006E3920 /* Confirm Config.swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
