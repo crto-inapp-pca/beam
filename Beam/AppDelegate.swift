@@ -35,13 +35,12 @@ enum DelayedAppAction {
     case performBlock(block: (() -> Void))
 }
 
-let textClassificationClient = TextClassificationClient(modelFileInfo: modelFileInfo, labelsFileInfo: labelsFileInfo, vocabFileInfo: vocabFileInfo)
-
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var galleryWindow: UIWindow?
+    var criteoWindow: UIWindow?
     
     override init() {
         super.init()
@@ -194,10 +193,24 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(key + " " + value.stringValue)
             }
             
+            let textClassificationClient = TextClassificationClient(modelFileInfo: modelFileInfo, labelsFileInfo: labelsFileInfo, vocabFileInfo: vocabFileInfo)
             let results = textClassificationClient?.classify(text: "I like a lot movies. I enjoy my evening.")
             print("----------------------")
             for result in results! {
               print(result.title + " " + String(result.confidence) + "\n")
+            }
+            
+            DispatchQueue.main.async {
+                guard let frame = application.keyWindow?.frame else {
+                    print("[Error] no frame")
+                    return
+                }
+                self.criteoWindow = CriteoWindow(frame: frame)
+                self.criteoWindow?.rootViewController = CriteoRootViewController(nibName: nil, bundle: nil)
+                self.criteoWindow?.rootViewController?.view.frame = frame;
+                self.criteoWindow?.windowLevel = UIWindow.Level.alert + 1
+                self.criteoWindow?.isHidden = false
+                self.criteoWindow?.makeKeyAndVisible()
             }
         }
         

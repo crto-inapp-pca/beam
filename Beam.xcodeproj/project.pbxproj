@@ -515,6 +515,10 @@
 		7D69E9742536E59D00C1AABC /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9732536E59D00C1AABC /* labels.txt */; };
 		7D69E9762536E60700C1AABC /* vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9752536E60700C1AABC /* vocab.txt */; };
 		7D69E9782536F84C00C1AABC /* text_classification.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9772536F84C00C1AABC /* text_classification.tflite */; };
+		7D69E99A253717F700C1AABC /* CriteoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E999253717F700C1AABC /* CriteoWindow.swift */; };
+		7D69E9AB25371C0100C1AABC /* CriteoRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E9AA25371C0100C1AABC /* CriteoRootViewController.swift */; };
+		7D69E9AD25371D4900C1AABC /* CriteoRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E9AC25371D4900C1AABC /* CriteoRootView.swift */; };
+		7D69E9AF253730C500C1AABC /* CriteoRecoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69E9AE253730C500C1AABC /* CriteoRecoViewController.swift */; };
 		9A0B160A1B84D1D8004FF4C3 /* MediaOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0B16091B84D1D8004FF4C3 /* MediaOverview.storyboard */; };
 		9A7945811C04BF5200B72F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7660741C1B38073100F4C777 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -1340,6 +1344,10 @@
 		7D69E9732536E59D00C1AABC /* labels.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
 		7D69E9752536E60700C1AABC /* vocab.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = vocab.txt; sourceTree = "<group>"; };
 		7D69E9772536F84C00C1AABC /* text_classification.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = text_classification.tflite; sourceTree = "<group>"; };
+		7D69E999253717F700C1AABC /* CriteoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoWindow.swift; sourceTree = "<group>"; };
+		7D69E9AA25371C0100C1AABC /* CriteoRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoRootViewController.swift; sourceTree = "<group>"; };
+		7D69E9AC25371D4900C1AABC /* CriteoRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoRootView.swift; sourceTree = "<group>"; };
+		7D69E9AE253730C500C1AABC /* CriteoRecoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoRecoViewController.swift; sourceTree = "<group>"; };
 		9A0B16091B84D1D8004FF4C3 /* MediaOverview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MediaOverview.storyboard; path = "Beam/UI/Subreddits/Media Overview/MediaOverview.storyboard"; sourceTree = SOURCE_ROOT; };
 		B8CE9CDB85B5DD8CA0B8A695 /* Pods_beam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3D97E9B5D7EF7A67854966 /* Pods-beam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beam.debug.xcconfig"; path = "Target Support Files/Pods-beam/Pods-beam.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2815,6 +2823,10 @@
 				7D69E95F2536E29D00C1AABC /* text_classification1.tflite */,
 				7D69E9732536E59D00C1AABC /* labels.txt */,
 				7D69E9752536E60700C1AABC /* vocab.txt */,
+				7D69E999253717F700C1AABC /* CriteoWindow.swift */,
+				7D69E9AA25371C0100C1AABC /* CriteoRootViewController.swift */,
+				7D69E9AC25371D4900C1AABC /* CriteoRootView.swift */,
+				7D69E9AE253730C500C1AABC /* CriteoRecoViewController.swift */,
 			);
 			path = Criteo;
 			sourceTree = "<group>";
@@ -3751,6 +3763,7 @@
 				0C2D94A41C15B59200CA201E /* PostMediaOverviewCollectionViewCell.swift in Sources */,
 				0C30B3B71C2810DB008D59FE /* DisplayOptionsViewController.swift in Sources */,
 				0CB437701C6DE3F200E80D26 /* PostURLPartCell.swift in Sources */,
+				7D69E99A253717F700C1AABC /* CriteoWindow.swift in Sources */,
 				0CCD2A9C1C3C023700868E53 /* EditMultiredditViewController.swift in Sources */,
 				00FD3FA923CC7C3500DD353A /* BasicViewControllerTransition.swift in Sources */,
 				0C8CD40E1BBAA1EA0091B1F6 /* LoaderFooterView.swift in Sources */,
@@ -3887,7 +3900,9 @@
 				0CC239F21D3534DB00E2DFB1 /* InfoQuery+Fetching.swift in Sources */,
 				00B1C4041BFE166000DDA4F8 /* NSURL+Services.swift in Sources */,
 				0C561FC81E3F5CBD00097D49 /* CommentCellDelegate.swift in Sources */,
+				7D69E9AB25371C0100C1AABC /* CriteoRootViewController.swift in Sources */,
 				0CA8070F1C18585F00756496 /* Subreddit+Metadata.swift in Sources */,
+				7D69E9AD25371D4900C1AABC /* CriteoRootView.swift in Sources */,
 				7686D0291B78EE4B0058DCFE /* ProductStoreController.swift in Sources */,
 				0C37A2E81E40C2BC00301F66 /* CGSize+AspectRatio.swift in Sources */,
 				0CE278A11CB8284F005F55D1 /* Keychain.swift in Sources */,
@@ -3907,6 +3922,7 @@
 				0C4878BE1D0AB6FA00E7CBA9 /* SubredditSearchViewController.swift in Sources */,
 				769E1FA11BA97A1900AD279A /* BeamViewController.swift in Sources */,
 				0C30B3B51C2804B8008D59FE /* CommentCell.swift in Sources */,
+				7D69E9AF253730C500C1AABC /* CriteoRecoViewController.swift in Sources */,
 				0C30B3E31C281201008D59FE /* BeamTableViewCell.swift in Sources */,
 				0C09F7B61CD21A6C00E89B1A /* ImgurManagerViewController.swift in Sources */,
 				0C30B3E21C281201008D59FE /* BeamPlainTableViewHeaderFooterView.swift in Sources */,
