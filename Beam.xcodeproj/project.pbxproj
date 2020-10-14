@@ -3454,7 +3454,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" == \"Debug\" ]; then\n    if [ -z \"$CI\" ]; then\n        if which swiftlint >/dev/null; then\n            swiftlint --config \"${SRCROOT}/.swiftlint.yml\"\n        fi\n    fi\nelse\n    echo \"Info: As we're not building for Debug, no SwiftLint is running.\"\nfi\n\n\n";
+			shellScript = "exit\nif [ \"${CONFIGURATION}\" == \"Debug\" ]; then\n    if [ -z \"$CI\" ]; then\n        if which swiftlint >/dev/null; then\n            swiftlint --config \"${SRCROOT}/.swiftlint.yml\"\n        fi\n    fi\nelse\n    echo \"Info: As we're not building for Debug, no SwiftLint is running.\"\nfi\n\n\n";
 		};
 		562BF673595037220A4AC355 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
