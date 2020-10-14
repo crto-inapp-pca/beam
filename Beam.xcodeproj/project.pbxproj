@@ -1343,7 +1343,7 @@
 		76F4E5ED1BAB05CA00123746 /* SubredditInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubredditInfoCell.swift; path = "Beam/UI/Subreddits/Subreddit View/Cells/SubredditInfoCell.swift"; sourceTree = SOURCE_ROOT; };
 		76FE600C1B53C28600DB8740 /* AddToMultiredditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddToMultiredditViewController.swift; path = "Beam/UI/Subreddits/Subreddit View/AddToMultiredditViewController.swift"; sourceTree = SOURCE_ROOT; };
 		76FE99FC1B85E210000BB67B /* Content+Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Content+Markdown.swift"; path = "Beam/Models/Content+Markdown.swift"; sourceTree = SOURCE_ROOT; };
-		7D69E95F2536E29D00C1AABC /* text_classification1.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; name = text_classification1.tflite; path = Beam/Criteo/text_classification1.tflite; sourceTree = SOURCE_ROOT; };
+		7D69E95F2536E29D00C1AABC /* text_classification1.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; name = text_classification1.tflite; path = Beam/Criteo/Models/text_classification1.tflite; sourceTree = SOURCE_ROOT; };
 		7D69E9702536E34100C1AABC /* CriteoTextClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteoTextClassifier.swift; sourceTree = "<group>"; };
 		7D69E9732536E59D00C1AABC /* labels.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
 		7D69E9752536E60700C1AABC /* vocab.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = vocab.txt; sourceTree = "<group>"; };
@@ -2723,6 +2723,17 @@
 			path = "Media Parsers";
 			sourceTree = "<group>";
 		};
+		465225D925374C0600AF8DA3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D69E9772536F84C00C1AABC /* text_classification.tflite */,
+				7D69E95F2536E29D00C1AABC /* text_classification1.tflite */,
+				7D69E9732536E59D00C1AABC /* labels.txt */,
+				7D69E9752536E60700C1AABC /* vocab.txt */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7660740A1B38073100F4C777 = {
 			isa = PBXGroup;
 			children = (
@@ -2822,17 +2833,14 @@
 		7D69E9722536E53A00C1AABC /* Criteo */ = {
 			isa = PBXGroup;
 			children = (
-				7D69E9772536F84C00C1AABC /* text_classification.tflite */,
-				7D69E9702536E34100C1AABC /* CriteoTextClassifier.swift */,
-				7D69E95F2536E29D00C1AABC /* text_classification1.tflite */,
-				7D69E9732536E59D00C1AABC /* labels.txt */,
-				7D69E9752536E60700C1AABC /* vocab.txt */,
+				465225D925374C0600AF8DA3 /* Models */,
 				4652258925374B6100AF8DA3 /* CriteoContextualAnalysisService.swift */,
-				7D69E999253717F700C1AABC /* CriteoWindow.swift */,
+				7D69E9702536E34100C1AABC /* CriteoTextClassifier.swift */,
+				7D69E9AE253730C500C1AABC /* CriteoRecoViewController.swift */,
 				7D69E9AA25371C0100C1AABC /* CriteoRootViewController.swift */,
 				7D69E9AC25371D4900C1AABC /* CriteoRootView.swift */,
-				7D69E9AE253730C500C1AABC /* CriteoRecoViewController.swift */,
 				4652251A25373B2400AF8DA3 /* CriteoTextScraper.swift */,
+				7D69E999253717F700C1AABC /* CriteoWindow.swift */,
 			);
 			path = Criteo;
 			sourceTree = "<group>";
