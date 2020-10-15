@@ -73,8 +73,8 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
     }
 
     func getProductImageURLs(classification: Classification, completion block: @escaping ([URL]) -> Void) {
-        let top3Categories = classification.sorted(by: { $0.value > $1.value }).prefix(3).map ({ $0.key })
-        let parameters = InAppParameters(categories: top3Categories)
+        let topCategories = classification.sorted(by: { $0.value > $1.value }).prefix(1).map ({ $0.key })
+        let parameters = InAppParameters(categories: topCategories)
         AF.request(inAppPcaEndpoint, method: .post, parameters: parameters, encoder: JSONParameterEncoder.prettyPrinted)
             .responseJSON { response in
                 switch response.result {
