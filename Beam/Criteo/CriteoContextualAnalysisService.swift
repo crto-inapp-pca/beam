@@ -49,7 +49,7 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
         DispatchQueue.global().async {
             //let classificationArr = self.classifier.classify(text: content)
             let classificationArr = self.bertClassifier.classify(text: content)
-            let classifier = classificationArr.reduce(into: [String: NSNumber]()) { $0[$1.key] = $1.value }
+            let classifier = classificationArr.reduce(into: [String: Float]()) { $0[$1.key] = $1.value.floatValue }
             block(classifier)
         }
     }
