@@ -11,7 +11,7 @@ import Alamofire
 
 let inAppPcaEndpoint = "https://pubcontent-pcainapp.par.preprod.crto.in/in-app"
 
-typealias Classification = [String: NSNumber]
+typealias Classification = [String: Float]
 
 protocol CriteoContextualAnalysisService {
     func scrape() -> String 
@@ -39,11 +39,11 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
         let deadlineTime = DispatchTime.now() + .seconds(1)
         DispatchQueue.global().asyncAfter(deadline: deadlineTime, execute: {
             block([
-                "Sport": 0.98,
-                "Furniture": 0.6,
-                "Dressing": 0.2222,
-                "Politic": 0.0,
-                "Luxe": 0.4,
+                "gs_event_mothers_day": 0.98,
+                "gs_travel_holidays": 0.6,
+                "gs_auto_luxury": 0.2222,
+                "gs_sport_baseball": 0.4,
+                "gs_tech_computing": 0.0,
             ])
         })
     }
@@ -67,7 +67,8 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
     }
 
     func getProductImageURLs(classification: Classification, completion block: @escaping ([URL]) -> Void) {
-        let parameters = InAppParameters(categories: ["gs_tech_cameras"]) // TODO
+        let top3Categories = classification.sorted(by: { $0.value > $1.value }).prefix(3).map ({ $0.key })
+        let parameters = InAppParameters(categories: top3Categories)
         AF.request(inAppPcaEndpoint, method: .post, parameters: parameters, encoder: JSONParameterEncoder.prettyPrinted)
             .responseJSON { response in
                 switch response.result {

@@ -19,7 +19,7 @@ class CriteoRecoViewController: UITableViewController {
     
     var service: CriteoContextualAnalysisService?
     var scrapped: String?
-    var sordedClassification: [(String, NSNumber)]?
+    var sortedClassification: [(String, Float)]?
     var productUrls: [URL]?
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class CriteoRecoViewController: UITableViewController {
         self.scrapped = self.service?.scrape()
         self.service?.classify(content: self.scrapped!, completion: { (classification) in
             DispatchQueue.main.async {
-                self.sordedClassification = classification.map({ ($0 , $1) }).sorted(by: { $0.1.floatValue > $1.1.floatValue })
+                self.sortedClassification = classification.sorted(by: { $0.value > $1.value })
                 self.tableView.reloadData()
             }
             self.service?.getProductImageURLs(classification: classification, completion: { (urls) in
@@ -59,8 +59,8 @@ class CriteoRecoViewController: UITableViewController {
             return self.productUrls!.count
         }
         
-        if section == 1 && self.sordedClassification != nil {
-            return self.sordedClassification!.count
+        if section == 1 && self.sortedClassification != nil {
+            return self.sortedClassification!.count
         }
         
         return 1
@@ -74,11 +74,11 @@ class CriteoRecoViewController: UITableViewController {
             return cell
         }
         
-        if indexPath.section == 1 && self.sordedClassification != nil {
+        if indexPath.section == 1 && self.sortedClassification != nil {
             let cell = tableView.dequeueReusableCell(withIdentifier: CriteoRecoViewController.ClassificationCellId, for: indexPath) as! CriteoClassificationCell
-            let cat = self.sordedClassification![indexPath.row]
+            let cat = self.sortedClassification![indexPath.row]
             cell.categoryLabel?.text = cat.0
-            cell.progress?.progress = cat.1.floatValue
+            cell.progress?.progress = cat.1
             return cell
         }
         
