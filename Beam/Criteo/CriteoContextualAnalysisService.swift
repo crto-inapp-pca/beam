@@ -24,6 +24,16 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
     // MARK: - Scraper
 
     let topController: UIViewController?
+    let classifier: CriteoNLClassifier
+    let bertClassifier: CriteoBERTNLClassifier
+    
+    init(topController: UIViewController?) {
+        classifier = CriteoNLClassifier()
+        classifier.loadModel()
+        bertClassifier = CriteoBERTNLClassifier()
+        bertClassifier.loadModel()
+        self.topController = topController
+    }
 
     func scrape() -> String {
         let texts = topController?.view.scrapeTextsRecursively() ?? []
@@ -36,16 +46,12 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
     // MARK: - Classifier
 
     func classify(content: String, completion block: @escaping (Classification) -> Void) {
-        let deadlineTime = DispatchTime.now() + .seconds(1)
-        DispatchQueue.global().asyncAfter(deadline: deadlineTime, execute: {
-            block([
-                "gs_event_mothers_day": 0.98,
-                "gs_travel_holidays": 0.6,
-                "gs_auto_luxury": 0.2222,
-                "gs_sport_baseball": 0.4,
-                "gs_tech_computing": 0.0,
-            ])
-        })
+        DispatchQueue.global().async {
+            //let classificationArr = self.classifier.classify(text: content)
+            let classificationArr = self.bertClassifier.classify(text: content)
+            let classifier = classificationArr.reduce(into: [String: NSNumber]()) { $0[$1.key] = $1.value }
+            block(classifier)
+        }
     }
 
     // MARK: - Product Images
@@ -83,6 +89,44 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
                     print("whoops")
                 }
             }
+    }
+    
+}
+
+
+struct CriteoContextualAnalysisServiceMock: CriteoContextualAnalysisService {
+    let topController: UIViewController?
+
+    func scrape() -> String {
+        let texts = topController?.view.scrapeTextsRecursively() ?? []
+        let filtered = texts.filter { (text) -> Bool in
+            text.split(characterSet: CharacterSet.whitespaces).count > 3
+        }
+        return filtered.joined(separator: "\n")
+    }
+    
+    func classify(content: String, completion block: @escaping (Classification) -> Void) {
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        DispatchQueue.global().asyncAfter(deadline: deadlineTime, execute: {
+            block([
+               "gs_event_mothers_day": 0.98,
+                "gs_travel_holidays": 0.6,
+                "gs_auto_luxury": 0.2222,
+                "gs_sport_baseball": 0.4,
+                "gs_tech_computing": 0.0,
+            ])
+        })
+    }
+    
+    func getProductImageURLs(classification: Classification, completion block: @escaping ([URL]) -> Void) {
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        DispatchQueue.global().asyncAfter(deadline: deadlineTime, execute: {
+            block([
+                URL(string:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRSqN3mZVdRrRNrxOGcuY6jJ38iD5reu3Lykm0zFP5LAetmu85WGNfIMnbDTwk&usqp=CAc")!,
+                URL(string:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRkeu3BXCpTtIHMDZLZvdc68ZGfCQPoJnX_b1az3PblQOiBtA0heeuQHBJlatlvXz4llExpYRk&usqp=CAc")!,
+                URL(string:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT-zwJdibWAbKqecDDQrEZmrzCngcTfV-sx4OPaDCMZq2exC3qlNNfBBJue4qDEOuieo-FZ78KQ&usqp=CAc")!
+            ])
+        })
     }
     
 }
