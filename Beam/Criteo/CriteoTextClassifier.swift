@@ -35,7 +35,8 @@ class CriteoBERTNLClassifier {
     private var classifier: TFLBertNLClassifier?
     
     func loadModel() {
-        guard let modelPath = Bundle.main.path(forResource: "mobilebert", ofType: "tflite") else { return }
+        //guard let modelPath = Bundle.main.path(forResource: "mobilebert", ofType: "tflite") else { return }
+        guard let modelPath = Bundle.main.path(forResource: "mobilebert_targeting", ofType: "tflite") else { return }
         self.classifier = TFLBertNLClassifier.bertNLClassifier(modelPath: modelPath)
     }
     

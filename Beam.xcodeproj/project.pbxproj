@@ -533,6 +533,7 @@
 		7D69E9F7253833A300C1AABC /* average_word_vec_vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9F3253833A300C1AABC /* average_word_vec_vocab.txt */; };
 		7D69E9FA25384BF100C1AABC /* mobilebert.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9F825384BF000C1AABC /* mobilebert.json */; };
 		7D69E9FB25384BF100C1AABC /* mobilebert.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 7D69E9F925384BF100C1AABC /* mobilebert.tflite */; };
+		7D69EA2C25387EBF00C1AABC /* mobilebert_targeting.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 7D69EA1C25387EBE00C1AABC /* mobilebert_targeting.tflite */; };
 		9A0B160A1B84D1D8004FF4C3 /* MediaOverview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A0B16091B84D1D8004FF4C3 /* MediaOverview.storyboard */; };
 		9A7945811C04BF5200B72F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7660741C1B38073100F4C777 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -1376,6 +1377,7 @@
 		7D69E9F3253833A300C1AABC /* average_word_vec_vocab.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = average_word_vec_vocab.txt; path = average_word_vec/average_word_vec_vocab.txt; sourceTree = "<group>"; };
 		7D69E9F825384BF000C1AABC /* mobilebert.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = mobilebert.json; path = mobilebert/mobilebert.json; sourceTree = "<group>"; };
 		7D69E9F925384BF100C1AABC /* mobilebert.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mobilebert.tflite; path = mobilebert/mobilebert.tflite; sourceTree = "<group>"; };
+		7D69EA1C25387EBE00C1AABC /* mobilebert_targeting.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mobilebert_targeting.tflite; path = mobilebert_targeting/mobilebert_targeting.tflite; sourceTree = "<group>"; };
 		9A0B16091B84D1D8004FF4C3 /* MediaOverview.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MediaOverview.storyboard; path = "Beam/UI/Subreddits/Media Overview/MediaOverview.storyboard"; sourceTree = SOURCE_ROOT; };
 		B8CE9CDB85B5DD8CA0B8A695 /* Pods_beam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3D97E9B5D7EF7A67854966 /* Pods-beam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beam.debug.xcconfig"; path = "Target Support Files/Pods-beam/Pods-beam.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2750,6 +2752,7 @@
 		465225D925374C0600AF8DA3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7D69EA1C25387EBE00C1AABC /* mobilebert_targeting.tflite */,
 				7D69E9F825384BF000C1AABC /* mobilebert.json */,
 				7D69E9F925384BF100C1AABC /* mobilebert.tflite */,
 				7D69E9F0253833A200C1AABC /* average_word_vec_labels.txt */,
@@ -3402,6 +3405,7 @@
 				7D69E9FA25384BF100C1AABC /* mobilebert.json in Resources */,
 				760DCF831B7A270A003AC4F9 /* Stream.storyboard in Resources */,
 				0C0F4D921BE7B85900D1BB89 /* stars_level_0.sks in Resources */,
+				7D69EA2C25387EBF00C1AABC /* mobilebert_targeting.tflite in Resources */,
 				9A7945811C04BF5200B72F27 /* Main.storyboard in Resources */,
 				7D69E9742536E59D00C1AABC /* labels.txt in Resources */,
 				0CCD2AB81C3C1C7600868E53 /* EditMultireddit.storyboard in Resources */,
