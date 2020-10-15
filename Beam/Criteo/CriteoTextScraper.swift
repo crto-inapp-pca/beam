@@ -9,15 +9,23 @@
 import UIKit
 
 extension UIView {
-    func scrapeTextsRecursively() -> [String] {
-        var texts = [String]()
+    func scrapeText() -> String? {
         if accessibilityTraits.intersection([.adjustable, .header]).isEmpty,
            let trimmedLabel = accessibilityLabel?.trimmingCharacters(in: .whitespacesAndNewlines),
            !trimmedLabel.isEmpty {
-            texts.append(trimmedLabel)
+            return trimmedLabel
+        }
+        return nil
+    }
+
+    func scrapeTextsRecursively() -> [String] {
+        var texts = [String]()
+        if let scraped = scrapeText() {
+            texts.append(scraped)
         }
         if !subviews.isEmpty {
-            texts.append(contentsOf: subviews.reversed().flatMap({ $0.scrapeTextsRecursively() }))
+            let subviewsTexts = subviews.reversed().flatMap({ $0.scrapeTextsRecursively() })
+            texts.append(contentsOf: subviewsTexts)
         }
         return texts
     }
