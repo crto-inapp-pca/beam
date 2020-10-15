@@ -34,7 +34,14 @@ class CriteoRecoViewController: UITableViewController {
         self.scrapped = self.service?.scrape()
         self.service?.classify(content: self.scrapped!, completion: { (classification) in
             DispatchQueue.main.async {
-                self.sortedClassification = classification.sorted(by: { $0.value > $1.value })
+                let topCategories = classification.sorted(by: { $0.value > $1.value }).prefix(10)
+                let maxWeight = topCategories.map(\.value).max()!
+                let prettifiedCategories = topCategories.map { key, value -> (String, Float) in
+                    let name = key.dropFirst(3).replacingOccurrences(of: "_", with: " ").capitalized
+                    let scaledValue = value / maxWeight
+                    return (name, scaledValue)
+                }
+                self.sortedClassification = Array(prettifiedCategories)
                 self.tableView.reloadData()
             }
             self.service?.getProductImageURLs(classification: classification, completion: { (urls) in
