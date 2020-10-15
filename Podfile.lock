@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.2.2)
   - GoogleToolboxForMac (2.2.1):
     - GoogleToolboxForMac/Core (= 2.2.1)
     - GoogleToolboxForMac/Defines (= 2.2.1)
@@ -68,22 +69,25 @@ PODS:
     - GoogleToolboxForMac (= 2.2.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.2)
   - TensorFlowLiteSwift
   - TensorFlowLiteTaskText (~> 0.0.1-nightly)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - GoogleToolboxForMac
     - TensorFlowLiteC
     - TensorFlowLiteSwift
     - TensorFlowLiteTaskText
 
 SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
   TensorFlowLiteC: 51f50caf5777f740a70e2c1a5dbdc149e7aeb50b
   TensorFlowLiteSwift: fb152cc1eec36b25b03a23c07f5d58113170af58
   TensorFlowLiteTaskText: 91de2657f08b7eb825e95d997df6afdc4543ba9d
 
-PODFILE CHECKSUM: bf93fe4a6905e2e094ab5b16a8cf33de85c1c53b
+PODFILE CHECKSUM: 72c2f000f1a147db53c72340ee7d0fdf5cec3738
 
 COCOAPODS: 1.9.3
