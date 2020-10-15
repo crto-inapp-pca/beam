@@ -20,7 +20,11 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
     let topController: UIViewController?
 
     func scrape() -> String {
-        return topController?.view.scrapeTextRecursively() ?? ""
+        let texts = topController?.view.scrapeTextsRecursively() ?? []
+        let filtered = texts.filter { (text) -> Bool in
+            text.split(characterSet: CharacterSet.whitespaces).count > 3
+        }
+        return filtered.joined(separator: "\n")
     }
     
     func classify(content: String, completion block: @escaping (Classification) -> Void) {

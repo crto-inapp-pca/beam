@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    func scrapeTextRecursively() -> String? {
+    func scrapeTextsRecursively() -> [String] {
         var texts = [String]()
         if accessibilityTraits.intersection([.adjustable, .header]).isEmpty,
            let trimmedLabel = accessibilityLabel?.trimmingCharacters(in: .whitespacesAndNewlines),
@@ -17,8 +17,8 @@ extension UIView {
             texts.append(trimmedLabel)
         }
         if !subviews.isEmpty {
-            texts.append(contentsOf: subviews.reversed().compactMap({ $0.scrapeTextRecursively() }))
+            texts.append(contentsOf: subviews.reversed().flatMap({ $0.scrapeTextsRecursively() }))
         }
-        return texts.isEmpty ? nil : texts.joined(separator: "\n")
+        return texts
     }
 }
