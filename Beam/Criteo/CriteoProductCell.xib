@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="149" id="KGk-i7-Jjw" customClass="CriteoProductCell" customModule="beam" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="592" height="149"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="130" id="KGk-i7-Jjw" customClass="CriteoProductCell" customModule="beam" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="592" height="130"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="592" height="149"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="592" height="130"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ctT-ND-8fz">
-                        <rect key="frame" x="232.5" y="11" width="127" height="127"/>
+                        <rect key="frame" x="20" y="11" width="110" height="110"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ctT-ND-8fz" secondAttribute="height" multiplier="1:1" id="VKq-25-hFm"/>
+                            <constraint firstAttribute="height" constant="110" id="kne-as-OY1"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ctT-ND-8fz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Tri-3a-zlj"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ctT-ND-8fz" secondAttribute="bottom" id="gw5-F7-1Pm"/>
-                    <constraint firstItem="ctT-ND-8fz" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="z8m-W5-lYX"/>
+                    <constraint firstItem="ctT-ND-8fz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="oKl-dp-20d"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="productImageView" destination="ctT-ND-8fz" id="rws-hK-Rot"/>
             </connections>
-            <point key="canvasLocation" x="184.05797101449278" y="188.50446428571428"/>
+            <point key="canvasLocation" x="184.05797101449278" y="182.14285714285714"/>
         </tableViewCell>
     </objects>
 </document>
