@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 
 class CriteoRecoViewController: UITableViewController {
+    var topController: UIViewController?
     
     static let LoadingCellId = "LoadingCellId"
     static let ClassificationCellId = "ClassificationCellId"
@@ -29,7 +30,7 @@ class CriteoRecoViewController: UITableViewController {
         self.tableView.register(UINib(nibName: "CriteoClassificationCell", bundle: nil), forCellReuseIdentifier: CriteoRecoViewController.ClassificationCellId)
         self.tableView.register(UINib(nibName: "CriteoProductCell", bundle: nil), forCellReuseIdentifier: CriteoRecoViewController.ProductCellId)
         self.tableView.register(UITableViewCell.self)
-        self.service = CriteoContextualAnalysisServiceMock()
+        self.service = CriteoContextualAnalysisServiceImplementation(topController: topController)
         self.scrapped = self.service?.scrape()
         self.service?.classify(content: self.scrapped!, completion: { (classification) in
             DispatchQueue.main.async {

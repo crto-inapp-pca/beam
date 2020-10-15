@@ -38,13 +38,10 @@ class CriteoRootViewController: UIViewController {
     }
     
     @objc func pressButton() {
-        if let topController = topMostController(),
-            let text = topController.view.scrapeTextRecursively() {
-            print("CONTENT: \(text)")
-            let recoViewController = CriteoRecoViewController()
-            let nav = UINavigationController(rootViewController: recoViewController)
-            show(nav, sender: self)
-        }
+        let recoViewController = CriteoRecoViewController()
+        recoViewController.topController = self.topMostController()
+        let nav = UINavigationController(rootViewController: recoViewController)
+        show(nav, sender: self)
     }
     
     var initialCenter = CGPoint()  // The initial center point of the view.

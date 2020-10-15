@@ -6,7 +6,7 @@
 //  Copyright © 2020 Awkward. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 typealias Classification = [String: NSNumber]
 
@@ -16,11 +16,11 @@ protocol CriteoContextualAnalysisService {
     func getProductImageURLs(classification: Classification, completion block: @escaping ([URL]) -> Void)
 }
 
+struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisService {
+    let topController: UIViewController?
 
-class CriteoContextualAnalysisServiceMock: CriteoContextualAnalysisService {
-    
     func scrape() -> String {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\nsed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,\n\nsunt in culpa qui officia deserunt mollit anim id est laborum."
+        return topController?.view.scrapeTextRecursively() ?? ""
     }
     
     func classify(content: String, completion block: @escaping (Classification) -> Void) {
