@@ -19,7 +19,7 @@ class CriteoNLClassifier {
     
     func loadModel() {
       guard let modelPath = Bundle.main.path(
-        forResource: "text_classification", ofType: "tflite") else { return }
+        forResource: "average_word_vec", ofType: "tflite") else { return }
       let options = TFLNLClassifierOptions()
       self.classifier = TFLNLClassifier.nlClassifier(modelPath: modelPath, options: options)
     }
@@ -30,6 +30,22 @@ class CriteoNLClassifier {
       return classifierResults
     }
 }
+
+class CriteoBERTNLClassifier {
+    private var classifier: TFLBertNLClassifier?
+    
+    func loadModel() {
+        guard let modelPath = Bundle.main.path(forResource: "mobilebert", ofType: "tflite") else { return }
+        self.classifier = TFLBertNLClassifier.bertNLClassifier(modelPath: modelPath)
+    }
+    
+    func classify(text: String) -> [String : NSNumber] {
+        guard let classifier = self.classifier else { return [:] }
+        let classifierResults = classifier.classify(text: text)
+        return classifierResults
+    }
+}
+
 
 
 typealias FileInfo = (name: String, extension: String)

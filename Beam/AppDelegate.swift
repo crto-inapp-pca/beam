@@ -193,6 +193,18 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(key + " " + value.stringValue)
             }
             
+            let classifierBERT = CriteoBERTNLClassifier()
+           classifierBERT.loadModel()
+           print("----------------------")
+           print("CLASSIFIER BERT")
+           print("Text:")
+           print("I like a lot movies. I enjoy my evening.")
+           let resultBERT = classifierBERT.classify(text: "I like a lot movies. I enjoy my evening.")
+           resultBERT.forEach { (arg0) in
+               let (key, value) = arg0
+               print(key + " " + value.stringValue)
+           }
+            
             let textClassificationClient = TextClassificationClient(modelFileInfo: modelFileInfo, labelsFileInfo: labelsFileInfo, vocabFileInfo: vocabFileInfo)
             let results = textClassificationClient?.classify(text: "I like a lot movies. I enjoy my evening.")
             print("----------------------")
