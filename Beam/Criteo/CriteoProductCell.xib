@@ -22,7 +22,7 @@
                         <rect key="frame" x="147" y="87" width="157" height="34"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <color key="tintColor" name="grey_dark"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>

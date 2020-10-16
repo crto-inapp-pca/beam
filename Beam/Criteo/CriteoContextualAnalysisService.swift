@@ -101,11 +101,13 @@ struct CriteoProduct {
     let name: String
     let category: String
     let imageURL: URL?
+    let productURL: URL?
 
-    init(name: String, category: String, imageURL: URL?) {
+    init(name: String, category: String, imageURL: URL?, productURL: URL? = nil) {
         self.name = name
         self.category = category
         self.imageURL = imageURL
+        self.productURL = productURL
     }
 
     init(dictionary: NSDictionary) {
@@ -115,6 +117,11 @@ struct CriteoProduct {
             imageURL = URL(string: bigImage)
         } else {
             imageURL = nil
+        }
+        if let productUrlString = dictionary["Url"] as? String {
+            productURL = URL(string: String(productUrlString.prefix(40)))
+        } else {
+            productURL = nil
         }
     }
 }

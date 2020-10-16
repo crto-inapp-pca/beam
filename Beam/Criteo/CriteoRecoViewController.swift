@@ -78,7 +78,7 @@ class CriteoRecoViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: CriteoRecoViewController.ProductCellId, for: indexPath) as! CriteoProductCell
             let product = products![indexPath.row]
             cell.nameLabel?.text = product.name
-            cell.categoryLabel?.text = product.category
+            cell.categoryLabel?.text = product.productURL?.host
             cell.productImageView?.sd_setImage(with: product.imageURL, placeholderImage: UIImage(named: "criteo_button"))
             return cell
         }
