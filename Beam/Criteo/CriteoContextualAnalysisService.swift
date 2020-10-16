@@ -62,7 +62,8 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
 
     func getProducts(for classification: Classification, completion block: @escaping ([CriteoProduct]) -> Void) {
         let topCategories = classification.sorted(by: { $0.value > $1.value }).prefix(1).map ({ $0.key })
-        let parameters = InAppParameters(categories: topCategories)
+        let partnerId = topCategories.filter { $0.contains("travel") }.isEmpty ? 725 : 1169
+        let parameters = InAppParameters(categories: topCategories, partnerId: partnerId)
         AF.request(inAppPcaEndpoint, method: .post, parameters: parameters, encoder: JSONParameterEncoder.prettyPrinted)
             .responseJSON { response in
                 switch response.result {
