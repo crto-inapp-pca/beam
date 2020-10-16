@@ -10,7 +10,9 @@ import UIKit
 
 class CriteoProductCell: UITableViewCell {
     
-    @IBOutlet var productImageView: UIImageView?
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var productImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

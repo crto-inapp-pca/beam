@@ -20,7 +20,7 @@ class CriteoRecoViewController: UITableViewController {
     var service: CriteoContextualAnalysisService?
     var scrapped: String?
     var sortedClassification: [(String, Float)]?
-    var productUrls: [URL]?
+    var products: [CriteoProduct]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +44,12 @@ class CriteoRecoViewController: UITableViewController {
                 self.sortedClassification = Array(prettifiedCategories)
                 self.tableView.reloadData()
             }
-            self.service?.getProductImageURLs(classification: classification, completion: { (urls) in
+            self.service?.getProducts(for: classification) { products in
                 DispatchQueue.main.async {
-                    self.productUrls = urls
+                    self.products = products
                     self.tableView.reloadData()
                 }
-            })
+            }
         })
     }
     
@@ -62,8 +62,8 @@ class CriteoRecoViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 && self.productUrls != nil {
-            return self.productUrls!.count
+        if section == 0 && self.products != nil {
+            return self.products!.count
         }
         
         if section == 1 && self.sortedClassification != nil {
@@ -74,10 +74,12 @@ class CriteoRecoViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 && self.productUrls != nil {
+        if indexPath.section == 0 && self.products != nil {
             let cell = tableView.dequeueReusableCell(withIdentifier: CriteoRecoViewController.ProductCellId, for: indexPath) as! CriteoProductCell
-            let url = self.productUrls![indexPath.row]
-            cell.productImageView?.sd_setImage(with: url, placeholderImage: UIImage(named: "criteo_button"))
+            let product = products![indexPath.row]
+            cell.nameLabel?.text = product.name
+            cell.categoryLabel?.text = product.category
+            cell.productImageView?.sd_setImage(with: product.imageURL, placeholderImage: UIImage(named: "criteo_button"))
             return cell
         }
         

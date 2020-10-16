@@ -16,17 +16,19 @@ typealias Classification = [String: Float]
 protocol CriteoContextualAnalysisService {
     func scrape() -> String 
     func classify(content: String, completion block: @escaping (Classification) -> Void)
-    func getProductImageURLs(classification: Classification, completion block: @escaping ([URL]) -> Void)
+    func getProducts(for classification: Classification, completion block: @escaping ([CriteoProduct]) -> Void)
 }
 
 struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisService {
 
-    // MARK: - Scraper
+    // MARK: - Properties
 
     let topController: UIViewController?
     let classifier: CriteoNLClassifier
     let bertClassifier: CriteoBERTNLClassifier
-    
+
+    // MARK: - Lifecycle
+
     init(topController: UIViewController?) {
         classifier = CriteoNLClassifier()
         classifier.loadModel()
@@ -34,6 +36,8 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
         bertClassifier.loadModel()
         self.topController = topController
     }
+
+    // MARK: - Scraper
 
     func scrape() -> String {
         let texts = topController?.view.scrapeTextsRecursively() ?? []
@@ -54,37 +58,20 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
         }
     }
 
-    // MARK: - Product Images
+    // MARK: - Products
 
-    struct InAppParameters: Codable {
-        let categories: [String]
-        let partnerId: Int
-        let productCount: Int
-        let platform: String
-        let country: String
-
-        init(categories: [String], partnerId: Int = 725, productCount: Int = 3, platform: String = "EU", country: String = "FR") {
-            self.categories = categories
-            self.partnerId = partnerId
-            self.productCount = productCount
-            self.platform = platform
-            self.country = country
-        }
-    }
-
-    func getProductImageURLs(classification: Classification, completion block: @escaping ([URL]) -> Void) {
+    func getProducts(for classification: Classification, completion block: @escaping ([CriteoProduct]) -> Void) {
         let topCategories = classification.sorted(by: { $0.value > $1.value }).prefix(1).map ({ $0.key })
         let parameters = InAppParameters(categories: topCategories)
         AF.request(inAppPcaEndpoint, method: .post, parameters: parameters, encoder: JSONParameterEncoder.prettyPrinted)
             .responseJSON { response in
                 switch response.result {
                 case .success(let JSON as NSDictionary):
-                    let products = JSON["products"]! as! NSArray
-                    let bigImages: [String] = products.map { product in
-                        (product as! NSDictionary)["BigImage"] as! String
+                    let productsJSON = JSON["products"]! as! NSArray
+                    let products: [CriteoProduct] = productsJSON.map { productJSON in
+                        CriteoProduct(dictionary: productJSON as! NSDictionary)
                     }
-                    let bigImagesURLs = bigImages.map({ URL(string: $0)! })
-                    block(bigImagesURLs)
+                    block(products)
                 default:
                     print("whoops")
                 }
@@ -93,6 +80,43 @@ struct CriteoContextualAnalysisServiceImplementation: CriteoContextualAnalysisSe
     
 }
 
+struct InAppParameters: Codable {
+    let categories: [String]
+    let partnerId: Int
+    let productCount: Int
+    let platform: String
+    let country: String
+
+    init(categories: [String], partnerId: Int = 725, productCount: Int = 3, platform: String = "EU", country: String = "FR") {
+        self.categories = categories
+        self.partnerId = partnerId
+        self.productCount = productCount
+        self.platform = platform
+        self.country = country
+    }
+}
+
+struct CriteoProduct {
+    let name: String
+    let category: String
+    let imageURL: URL?
+
+    init(name: String, category: String, imageURL: URL?) {
+        self.name = name
+        self.category = category
+        self.imageURL = imageURL
+    }
+
+    init(dictionary: NSDictionary) {
+        name = dictionary["Name"] as? String ?? ""
+        category = dictionary["ProductType"] as? String ?? ""
+        if let bigImage = dictionary["BigImage"] as? String {
+            imageURL = URL(string: bigImage)
+        } else {
+            imageURL = nil
+        }
+    }
+}
 
 struct CriteoContextualAnalysisServiceMock: CriteoContextualAnalysisService {
     let topController: UIViewController?
@@ -118,13 +142,19 @@ struct CriteoContextualAnalysisServiceMock: CriteoContextualAnalysisService {
         })
     }
     
-    func getProductImageURLs(classification: Classification, completion block: @escaping ([URL]) -> Void) {
+    func getProducts(for classification: Classification, completion block: @escaping ([CriteoProduct]) -> Void) {
         let deadlineTime = DispatchTime.now() + .seconds(1)
         DispatchQueue.global().asyncAfter(deadline: deadlineTime, execute: {
             block([
-                URL(string:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRSqN3mZVdRrRNrxOGcuY6jJ38iD5reu3Lykm0zFP5LAetmu85WGNfIMnbDTwk&usqp=CAc")!,
-                URL(string:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRkeu3BXCpTtIHMDZLZvdc68ZGfCQPoJnX_b1az3PblQOiBtA0heeuQHBJlatlvXz4llExpYRk&usqp=CAc")!,
-                URL(string:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT-zwJdibWAbKqecDDQrEZmrzCngcTfV-sx4OPaDCMZq2exC3qlNNfBBJue4qDEOuieo-FZ78KQ&usqp=CAc")!
+                CriteoProduct(
+                    name: "Product 1", category: "Category 1",
+                    imageURL: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRSqN3mZVdRrRNrxOGcuY6jJ38iD5reu3Lykm0zFP5LAetmu85WGNfIMnbDTwk&usqp=CAc")),
+                CriteoProduct(
+                    name: "Product 1", category: "Category 1",
+                    imageURL: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRkeu3BXCpTtIHMDZLZvdc68ZGfCQPoJnX_b1az3PblQOiBtA0heeuQHBJlatlvXz4llExpYRk&usqp=CAc")),
+                CriteoProduct(
+                    name: "Product 1", category: "Category 1",
+                    imageURL: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT-zwJdibWAbKqecDDQrEZmrzCngcTfV-sx4OPaDCMZq2exC3qlNNfBBJue4qDEOuieo-FZ78KQ&usqp=CAc")),
             ])
         })
     }
